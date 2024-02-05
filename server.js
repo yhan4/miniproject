@@ -85,10 +85,25 @@ app.get('/api/currency/:id', (request, response) => {
  * with data object enclosed
  * @responds by returning the newly created resource
  */
-app.post('...', (request, response) => {
+app.post('/api/currency', (request, response) => {
+  // extract data sent in the request body
+  const { currencyCode, country, conversionRate } = request.body;
 
+  if (!currencyCode || !country || !conversionRate) {
+    return response.status(400).json({ error: 'content missing' });
+  }
 
-})
+  const EURcurrency = {
+    id: currencies.length + 1,
+    currencyCode: "EUR",
+    country: "European Union",
+    conversionRate: 0.69
+  };
+
+  currencies.push(EURcurrency);
+
+  response.json(EURcurrency);
+});
 
 /**
  * TODO: PUT:id endpoint
