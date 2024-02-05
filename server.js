@@ -87,10 +87,12 @@ app.get('/api/currency/:id', (request, response) => {
  */
 app.post('/api/currency', (request, response) => {
   // extract data sent in the request body
-  const { currencyCode, country, conversionRate } = request.body;
+  const currencyCode = request.body
+  const country = request.body
+  const conversionRate = request.body
 
-  if (!currencyCode || !country || !conversionRate) {
-    return response.status(400).json({ error: 'content missing' });
+  if (!currencyCode||!country||!conversionRate ) {
+    return response.status(400).json({ error: 'content missing' })
   }
 
   const EURcurrency = {
