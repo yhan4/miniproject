@@ -145,6 +145,18 @@ app.delete('/api/currency/:id', (request, response) => {
 })
 
 
+
+/**
+ * Add an unknown endpoint
+ * This unknown endpoint should return a 404 status code 
+ * with the response object { error: 'unknown endpoint }
+ */
+app.use((request, response) => {
+  response.status(404).json({ error: 'unknown endpoint' });
+});
+
+
+
 const PORT = 3001
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`)
