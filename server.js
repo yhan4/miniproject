@@ -107,6 +107,9 @@ app.post('/api/currency', (request, response) => {
   response.json(EURcurrency);
 });
 
+
+
+
 /**
  * TODO: PUT:id endpoint
  * @receives a put request to the URL: http://localhost:3001/api/currency/:id/:newRate
@@ -114,8 +117,16 @@ app.post('/api/currency', (request, response) => {
  * Hint: updates the currency with the new conversion rate
  * @responds by returning the newly updated resource
  */
-app.put('...', (request, response) => {
-  
+app.put('/api/currency/:id/:newRate', (request, response) => {
+  // extract data from request parameters
+  const id = request.params.id
+  const newRate = request.params.newRate
+  const currencyID = parseInt(id)
+  const currencyUpdate = currencies.find(c => c.id === currencyID) 
+
+  currencyUpdate.conversionRate = newRate
+  response.json(currencyUpdate)
+
 })
 
 /**
