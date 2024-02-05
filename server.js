@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')  // We import the express application
 const morgan = require('morgan')
 const cors = require('cors') // Necessary for localhost
