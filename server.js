@@ -44,6 +44,9 @@ app.get('/', (request, response) => {
   response.send('Hello World!')
 })
 
+
+
+
 /**
  * TODO: GET Endpoint
  * @receives a get request to the URL: http://localhost:3001/api/currency/
@@ -53,15 +56,28 @@ app.get('/api/currency/', (request, response) => {
   response.json(currencies)
 })
 
+
+
+
 /**
  * TODO: GET:id Endpoint
  * @receives a get request to the URL: http://localhost:3001/api/currency/:id
  * @responds with returning specific data as a JSON
  */
-app.get('...', (request, response) => {
+app.get('/api/currency/:id', (request, response) => {
+  // extract id from URL
+  const id = request.params.id
+  const curreny = currencies.find(c => c.id === parseInt(id))
 
+  if (!curreny) {
+    return response.status(404).json({error: 'resource not found' })
+  }
 
+  response.json(curreny)
 })
+
+
+
 
 /**
  * TODO: POST Endpoint
