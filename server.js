@@ -1,4 +1,5 @@
 const express = require('express')  // We import the express application
+const morgan = require('morgan');
 const cors = require('cors') // Necessary for localhost
 const app = express() // Creates an express application in app
 
@@ -7,6 +8,7 @@ const app = express() // Creates an express application in app
  * We need to use cors so we can connect to a localhost later
  * We need express.json so we can receive requests with JSON data attached
  */
+app.use(morgan('tiny'));
 app.use(cors())
 app.use(express.json())
 
