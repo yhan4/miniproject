@@ -129,15 +129,21 @@ app.put('/api/currency/:id/:newRate', (request, response) => {
 
 })
 
+
+
 /**
  * TODO: DELETE:id Endpoint
  * @receives a delete request to the URL: http://localhost:3001/api/currency/:id,
  * @responds by returning a status code of 204
  */
-app.post('...', (request, response) => {
+app.delete('/api/currency/:id', (request, response) => {
+  const id = parseInt(request.params.id);
 
+  currencies = currencies.filter(currency => currency.id !== id);
 
+  response.status(204).json();
 })
+
 
 const PORT = 3001
 app.listen(PORT, () => {
