@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const cors = require('cors') // Necessary for localhost
 const app = express() // Creates an express application in app
 const currencyRoutes = require('./routes/currencyRoutes')
+const sequelize = require('./config/sequelize')
 
 /**
  * Initial application setup
@@ -162,6 +163,13 @@ app.use((request, response) => {
 
 
 const PORT = 3001
-app.listen(PORT, () => {
-  console.log(`Server running on port: ${PORT}`)
+
+sequelize
+  .sync()
+  .then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running on port: ${PORT}`)
+  })
+}).catch((error) => {
+  console.error('error in syncing the database',error)
 })
