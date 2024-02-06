@@ -40,22 +40,23 @@ const getCurrencyById = async(request, response) => {
 
 const addCurrency = async (request, response) => {
     // extract data sent in the request body
-  const currencyCode = request.body
-  const country = request.body
-  const conversionRate = request.body
+  const currencyCode = request.body.currencyCode
+  const countryID = request.body.countryID
+  const conversionRate = request.body.conversionRate
 
   try {
     const newCurrency = await Currency.create({
       currencyCode,
-      counryID,
-      conversionRate
+      countryID, 
+      conversionRate,
     })
-    if (!currencyCode||!country||!conversionRate ) {
+    if (!currencyCode||!countryID||!conversionRate ) {
       return response.status(400).json({ error: 'content missing' })
     }
     response.json(newCurrency)
-  } catch {
+  } catch (error) {
     console.error(error)
+    response.status(500).json({ error: 'Internal server error' })
   }
 }
 

@@ -12,7 +12,7 @@ const Currency = sequelize.define('Currency', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    convertionRate: {
+    conversionRate: {
         type: DataTypes.FLOAT,
         allowNull: false,
     },
