@@ -3,9 +3,11 @@ const express = require('express')  // We import the express application
 const morgan = require('morgan')
 const cors = require('cors') // Necessary for localhost
 const app = express() // Creates an express application in app
+const sequelize = require('./config/sequelize')
 const currencyRoutes = require('./routes/currencyRoutes')
 const countryRoutes = require('./routes/countryRoutes')
-const sequelize = require('./config/sequelize')
+const currencyCountryRoutes = require('./routes/currencyCountryRoutes')
+
 
 /**
  * Initial application setup
@@ -17,6 +19,7 @@ app.use(cors())
 app.use(express.json())
 app.use('/api/currency', currencyRoutes)
 app.use('/api/country', countryRoutes)
+app.use('/api/currency-country', currencyCountryRoutes)
 
 
 /**
@@ -42,8 +45,7 @@ app.use((request, response) => {
 
 const PORT = 3001
 
-sequelize
-  .sync()
+sequelize.sync()
   .then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`)

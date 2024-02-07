@@ -26,6 +26,6 @@ const Currency = sequelize.define('Currency', {
     }
 })
 
-Currency.belongsTo(Country, { foreignKey: 'countryID' })
+Currency.belongsTo(Country, { foreignKey: 'countryID',as: 'country' })
 
 module.exports = Currency
