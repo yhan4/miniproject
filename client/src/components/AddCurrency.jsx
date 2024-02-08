@@ -22,6 +22,11 @@ const AddCurrency = () => {
                     conversionRate,
                 })
             })
+            if (response.ok) {
+                console.log('currency added');
+              } else {
+                console.error('failed to add currency');
+              }
         } catch (error) {
             console.error('error in fetch', error)
         }
