@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect  } from 'react';
+import '../styles/App.css'
 import Login from './Login';
 import Conversion from './Conversion';
 import AddCurrency from './AddCurrency';

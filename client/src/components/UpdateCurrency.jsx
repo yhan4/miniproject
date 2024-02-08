@@ -35,7 +35,7 @@ const UpdateCurrency = ({currencies}) => {
     }}
 
     return (
-        <div>
+        <div className="container">
             <h2>Update Currency</h2>
             <form onSubmit={handleUpdateCurrency}>
                 <label>

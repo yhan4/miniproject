@@ -32,7 +32,7 @@ const DeleteCurrency = ({currencies}) => {
     }}
 
     return (
-        <div>
+        <div className="container">
             <h2>Delete</h2>
             <form onSubmit={handleDeleteCurrency}>
                 <label>Currency Code: </label>

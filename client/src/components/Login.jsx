@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () => {
     return(
-        <div>
+        <div className="container">
             <form>
                 <label>
                     Username: <input type="text" />
@@ -10,8 +10,11 @@ const Login = () => {
                 <label>
                     Password: <input type="password" />
                 </label>
-                <button>Login</button>
-                <button>Sign up</button>
+                <div className="button-container">
+                    <button>Login</button>
+                    <button>Sign up</button>
+                </div>
+                
             </form>
         </div>
     )

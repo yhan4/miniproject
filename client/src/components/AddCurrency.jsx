@@ -37,7 +37,7 @@ const AddCurrency = () => {
     }
 
     return (
-        <div>
+        <div className="container">
             <h2>Add Currency</h2>
             <form onSubmit={handleAddCurrency}>
                 <label>

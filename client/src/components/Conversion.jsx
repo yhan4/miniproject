@@ -2,7 +2,7 @@ import React from "react";
 
 const Conversion = () => {
     return (
-        <div>
+        <div className="container">
             <h2>Conversion</h2>
             <form>
                 <label>
