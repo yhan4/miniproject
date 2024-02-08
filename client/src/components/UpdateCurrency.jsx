@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const UpdateCurrency = ({ currencies}) => {
+const UpdateCurrency = ({currencies}) => {
     const [currencyCode, setCurrencyCode] = useState("");
     const [newRate, setNewRate] = useState("");
 
